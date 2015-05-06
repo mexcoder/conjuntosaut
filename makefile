@@ -1,19 +1,22 @@
+SHELL=C:/Windows/System32/cmd.exe
+
 all: compile
-	
+
+makedirs:
+	if not exist "build" mkdir build
+	if not exist bin mkdir bin
 
 debug:
-	mkdir build
+	makedirs
 	flex reglas.l
-	clang lex.yy.c -o build/lexer.o
+	clang lex.yy.c -o build/lexer.o -c
 	clang++ conjuntos -g main.cpp conjuntos.cpp automata.cpp funciones.cpp -Wl,build/lexer.o -o  bin/conjunto.exe
 
 
-compile:
-	mkdir build
+compile: makedirs
 	flex reglas.l
-	clang lex.yy.c -o build/lexer.o
-	mkdir bin
-	clang++ -ll main.cpp conjuntos.cpp automata.cpp funciones.cpp -Wl,build/lexer.o -o  bin/conjunto.exe
+	clang lex.yy.c -c -o build/lexer.o
+	clang++ main.cpp conjuntos.cpp automata.cpp funciones.cpp -Wl,build/lexer.o -o  bin/conjunto.exe
     
 run: all
 	./conjuntos

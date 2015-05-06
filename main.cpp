@@ -1,13 +1,14 @@
 #include <iostream>
 #include "automata.h"
 #include "token.h"
+#include "funciones.h"
 
 using namespace std;
 
 
 automata aut;
 
-extern "C" void Token(enum token);
+extern "C" void Token(enum token,char* );
 extern "C" int yylex();
 
 int main(void){
@@ -17,18 +18,22 @@ int main(void){
 
 }
 
-extern "C" void Token(enum token t){
+extern "C" void Token(enum token t,char* text){
 
-	cout<<t<<endl;
+	cout<<t<<"  ->  "<<text<<endl;
+
+	if( t == T_TOKEN)
+	 	cout << "storing token"<<endl;//storeToken(text);
+
+	if( t == T_EOL){
+	 	cout<<"ejecutar instruccion"<<endl;
+	 	refreshTokens();
+	}
+
 	return;
 	
 	int res = aut.walk(t);
-	if( t == T_EOL){
-		cout<<"ejecutar instruccion";
-		refreshTokens();
-	}
 	
-	if( t == T_ID)
-		storeToken(yytext);
+	
 
 }

@@ -7,6 +7,7 @@
 //
 
 #include "conjuntos.h"
+#include <algorithm>
 
 vector<string> conjuntos::getSetNames(){
     

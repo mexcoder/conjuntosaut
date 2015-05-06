@@ -1,29 +1,30 @@
+%option noyywrap
+%option case-insensitive
 %s saveToken
 	#include "token.h"
 	#include "funciones.h"
 
-	void Token(enum token);
-	//void saveToken(char*);
+	void Token(enum token,char*);
 
 %%
 
-SET Token(T_SET);
-SETS Token(T_SETS);
-SHOWSET Token(T_SHOW_SET);
-SHOWSETS Token(T_SHOW_SETS);
-UNION Token(T_UNION);
-SETUNION Token(T_SET_UNION);
-INTERSECT Token(T_INTERSECT);
-SETINTERSECT Token(T_SET_INTERSECT);
-, Token(T_COMA);
-\{ Token(T_LBR);
-\} Token(T_RBR);
-:= Token(T_ASIGN);
-[[:blank:]] ;//just consume the character
-[[:alpha:]_] Token(T_TOKEN);//<saveToken>[[:alpha:]] saveToken(yytext);
-;?$ Token(T_EOL);
-
 ^exit|end|close|bye exitProgram();
+SET Token(T_SET,yytext);
+SETS Token(T_SETS,yytext);
+SHOWSET Token(T_SHOW_SET,yytext);
+SHOWSETS Token(T_SHOW_SETS,yytext);
+UNION Token(T_UNION,yytext);
+SETUNION Token(T_SET_UNION,yytext);
+INTERSECT Token(T_INTERSECT,yytext);
+SETINTERSECT Token(T_SET_INTERSECT,yytext);
+, Token(T_COMA,yytext);
+\{ Token(T_LBR,yytext);
+\} Token(T_RBR,yytext);
+:= Token(T_ASIGN,yytext);
+[[:blank:]] ;//just consume the character
+[[:alpha:]_]+ Token(T_TOKEN,yytext);
+;?\n Token(T_EOL,yytext);
 
-. Token(T_STRING);
+
+. ;
 
