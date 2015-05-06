@@ -5,6 +5,7 @@
 #include <string>
 #include "tipoIns.h"
 #include <stdlib.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -70,7 +71,7 @@ void runIns(tipoIns ins){
 
 
 void error(){
-    cout<<"Comando desconocido: \"" << yytext << "\"";
+    cout<<"Comando desconocido: \"" << "cmd to be added" << "\"";
 }
 
 void errors(){//error de sintanxis
@@ -104,7 +105,7 @@ void showsets(){
             if(x<(map[key].size()-1))//pretty print
                 cout<<", ";
         }
-        cout<<" }"<<endl;
+        cout<<" }" << endl;
         
     }
     
@@ -147,8 +148,20 @@ void setIntersect(){
 
 void set(){
 
+    //reverse so we can use back and pop_back
+    reverse(tokenList.begin(),tokenList.end());
+    //extract the name of the set
+    string name = tokenList.back();
+    //pop it out of the list
+    tokenList.pop_back();
+    c.addItem(name,tokenList);
 
+}
 
+void showset(){
+
+    printset(tokenList[0],c.getSet(tokenList[0]));
+    
 }
 
 

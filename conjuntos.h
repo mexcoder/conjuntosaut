@@ -31,7 +31,7 @@ protected:
     
 public:
     
-    void addItem(string,vector<string>*);
+    void addItem(string,vector<string>);
     
     vector<string> Union(string, string);
     vector<string> intersection(string s1,string s2);
@@ -39,6 +39,7 @@ public:
     vector<string> setIntersection(string s1,string s2,string dest);
     vector<string> getSetNames();
     tr1::unordered_map< std::string, vector <string> > getSets();
+    vector <string> getSet(string);
     
 };
 

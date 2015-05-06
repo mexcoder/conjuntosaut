@@ -24,19 +24,23 @@ vector<string> conjuntos::getSetNames(){
     
 }
 
-void conjuntos::addItem(string title, vector<string> *item){
+void conjuntos::addItem(string title, vector<string> item){
     
     
-    std::sort(item->begin(), item->end());
+    std::sort(item.begin(), item.end());
     
-    this->sets[string(title)] = *item;
-    delete item;
+    this->sets[string(title)] = item;
+    
     
 }
 
 tr1::unordered_map< std::string, vector <string> > conjuntos::getSets(){
     
     return this->sets;
+}
+
+vector <string> conjuntos::getSet(string set){
+    return this->sets[set];
 }
 
 void conjuntos::initVector(vector<string> *vec,int size){
