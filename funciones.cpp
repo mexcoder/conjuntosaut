@@ -71,10 +71,13 @@ void runIns(tipoIns ins){
 
 
 void error(){
-    cout<<"Comando desconocido: \"" << "cmd to be added" << "\"";
+
+    cout<<"Comando desconocido"<<endl;//: \"" << "cmd to be added" << "\"";
+
 }
 
 void errors(){//error de sintanxis
+
     cout<<"error de sintaxis en el comando"<<endl;
     
 }
@@ -161,7 +164,7 @@ void set(){
 void showset(){
 
     printset(tokenList[0],c.getSet(tokenList[0]));
-    
+
 }
 
 
@@ -169,49 +172,3 @@ extern "C" void exitProgram(){
 	cout<<"saliendo del programa"<<endl;
 	exit(0);
 }
- 
-
-
-// extern "C" void PrepareTokens(){
-    
-//     tokenList.c1 = "";
-//     tokenList.c2 = "";
-//     tokenList.c3 = "";
-    
-// }
-
-// extern "C" void addToken(char *token){
-    
-//     string t = string(token);
-    
-//     if(tokenList.c1 == ""){
-//         tokenList.c1 = t;
-//     }
-//     else if(tokenList.c2 == ""){
-//         tokenList.c2 = t;
-//     }
-//     else{
-//         tokenList.c3 = t;
-//     }
-
-// }
-
-// extern "C" void new_Item(char *it){
-    
-//     name = string(it);
-    
-//     item = new vector<string>();
-    
-// }
-
-// extern "C" void addItem(char *it){
-    
-//     item->push_back(string(it));
-    
-// }
-
-// extern "C" void commitSet(){
-    
-//     c.addItem(name,item);
-    
-// }

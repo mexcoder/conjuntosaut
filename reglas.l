@@ -1,5 +1,6 @@
 %option noyywrap
 %option case-insensitive
+
 %s saveToken
 	#include "token.h"
 	#include "funciones.h"
@@ -9,6 +10,8 @@
 %%
 
 ^exit|end|close|bye exitProgram();
+DEBUG Token(T_DEBUG,yytext);
+
 SET Token(T_SET,yytext);
 SETS Token(T_SETS,yytext);
 SHOWSET Token(T_SHOW_SET,yytext);
@@ -22,7 +25,7 @@ SETINTERSECT Token(T_SET_INTERSECT,yytext);
 \} Token(T_RBR,yytext);
 := Token(T_ASIGN,yytext);
 [[:blank:]] ;//just consume the character
-[[:alpha:]_]+ Token(T_TOKEN,yytext);
+[[:alnum:]_]+ Token(T_TOKEN,yytext);
 ;?\n Token(T_EOL,yytext);
 
 
