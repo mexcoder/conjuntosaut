@@ -12,7 +12,8 @@ void doIntersect();
 void setUnion();
 void setIntersect();
 void set();
-
+void doResta();
+void setResta();
 
 #ifdef __cplusplus
 

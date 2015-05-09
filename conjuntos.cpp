@@ -88,6 +88,36 @@ vector<string> conjuntos::setUnion(string s1,string s2,string dest){
     
 }
 
+vector<string> conjuntos::setResta(vector<string> s1,vector<string> s2,vector<string> *dest){
+
+    std::vector<string>::iterator it;
+    
+    int size =s1.size()+s2.size();
+    
+    this->initVector(dest,size);
+    
+    it = std::set_difference (s1.begin(), s1.end(), s2.begin(), s2.end(), dest->begin());
+    
+    dest->resize(it-dest->begin());
+    
+    return *dest;
+
+}
+
+vector<string> conjuntos::resta(string s1,string s2){
+    
+    return setResta(this->sets[s1],this->sets[s2],new vector<string>());
+    
+}
+
+vector<string> conjuntos::setResta(string s1,string s2,string dest){
+    
+    return setResta(this->sets[s1],this->sets[s2],&this->sets[dest]);
+    
+}
+
+
+
 
 
 vector<string> conjuntos::setIntersection(vector<string> s1,vector<string> s2,vector<string> *dest){

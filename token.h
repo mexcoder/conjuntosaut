@@ -5,9 +5,9 @@
 
 enum token{
 	T_SET,
-	T_SETS,
-	T_SHOW_SET,
 	T_SHOW_SETS,
+	T_SHOW_SET,
+	T_SETS,
 	T_UNION,
 	T_INTERSECT,
 	T_SET_UNION,
@@ -18,6 +18,8 @@ enum token{
 	T_ASIGN,
 	T_TOKEN,
 	T_STRING,
+	T_RESTA,
+	T_SET_RESTA,
 	T_EOL,
 	T_WHITESPACE,
 	T_DEBUG

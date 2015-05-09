@@ -56,10 +56,17 @@ void runIns(tipoIns ins){
             
 
         case setINTERSEC:
-            res = c.setIntersection(tokenList[0],tokenList[1],tokenList[2]);
+            res = c.setIntersection(tokenList[2],tokenList[1],tokenList[0]);
             break;
         case setUNION:
-            res = c.setUnion(tokenList[0],tokenList[1],tokenList[2]);
+            res = c.setUnion(tokenList[2],tokenList[0],tokenList[0]);
+            break;
+
+        case RESTA:
+            res = c.resta(tokenList[0],tokenList[1]);
+            break;
+        case setRESTA:
+            res = c.setResta(tokenList[1],tokenList[2],tokenList[0]);
             break;
 
     }
@@ -129,6 +136,18 @@ void storeToken(char * t){
 void doUnion(){
 
     runIns(UNION);
+
+}
+
+void doResta(){
+
+    runIns(RESTA);
+
+}
+
+void setResta(){
+
+    runIns(setRESTA);
 
 }
 

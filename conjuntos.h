@@ -25,6 +25,8 @@ protected:
     void initVector(vector<string> *vec,int);
     
     vector<string> setUnion(vector<string> s1,vector<string> s2,vector<string> *dest);
+
+    vector<string> setResta(vector<string> s1,vector<string> s2,vector<string> *dest);
     
     vector<string> setIntersection(vector<string> s1,vector<string> s2,vector<string> *dest);
     
@@ -34,9 +36,11 @@ public:
     void addItem(string,vector<string>);
     
     vector<string> Union(string, string);
-    vector<string> intersection(string s1,string s2);
     vector<string> setUnion(string s1,string s2,string dest);
+    vector<string> intersection(string s1,string s2);
     vector<string> setIntersection(string s1,string s2,string dest);
+    vector<string> resta(string, string);
+    vector<string> setResta(string, string,string);
     vector<string> getSetNames();
     tr1::unordered_map< std::string, vector <string> > getSets();
     vector <string> getSet(string);

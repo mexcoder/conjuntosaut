@@ -2,5 +2,7 @@ enum tipoIns{
     UNION,
     setUNION,
     INTERSEC,
-    setINTERSEC
+    setINTERSEC,
+    RESTA,
+    setRESTA
 } instruccion,op;
