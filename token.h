@@ -4,23 +4,23 @@
 **/
 
 enum token{
-	T_SET,
-	T_SHOW_SETS,
-	T_SHOW_SET,
-	T_SETS,
-	T_UNION,
-	T_INTERSECT,
-	T_SET_UNION,
-	T_SET_INTERSECT,
-	T_COMA,
-	T_LBR,
-	T_RBR,
-	T_ASIGN,
-	T_TOKEN,
-	T_STRING,
-	T_RESTA,
-	T_SET_RESTA,
-	T_EOL,
-	T_WHITESPACE,
-	T_DEBUG
+	T_SET, 			//0
+	T_SHOW_SETS,	//1
+	T_SHOW_SET,		//2	
+	T_SETS,			//3
+	T_UNION,		//4	
+	T_INTERSECT,	//5	
+	T_SET_UNION,	//6
+	T_SET_INTERSECT,//7		
+	T_COMA,			//8
+	T_LBR,			//9
+	T_RBR,			//10
+	T_ASIGN,		//11
+	T_TOKEN,		//12
+	T_STRING,		//13
+	T_RESTA,		//14
+	T_SET_RESTA,	//15
+	T_EOL,			//16
+	T_WHITESPACE,	//17	
+	T_DEBUG			//18
 };

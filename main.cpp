@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 #include "automata.h"
 #include "token.h"
 #include "funciones.h"
@@ -11,6 +12,7 @@ automata aut;
 
 extern "C" void Token(enum token,char* );
 extern "C" int yylex();
+extern "C" FILE * yyin;
 
 bool debug = false;
 bool ignore = false;
@@ -18,10 +20,26 @@ bool ignore = false;
 void test(void);
 void demoSet();
 
-int main(void){
-	demoSet();
-	showsets();
-	cout<<"esperando instrucciones"<<endl;
+int main(int argc, char *argv[]){
+
+	if(argc == 1){ //sin parametros
+		demoSet();
+		showsets();
+		cout<<"esperando instrucciones"<<endl;
+		
+	}
+	else{//el primer parametro deberia ser el archivo
+
+		yyin = fopen(argv[1],"r");
+
+		if(yyin == NULL)
+		{
+			cout<<"error al leer el archivo";
+			return -1;
+		}
+
+		cout<<"leyendo instrucciones del archivo \""<<argv[1]<<"\""<<endl;
+	}
 	yylex();
 
 }

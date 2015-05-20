@@ -30,7 +30,7 @@ SETRESTA Token(T_SET_RESTA,yytext);
 := Token(T_ASIGN,yytext);
 [[:blank:]] ;//just consume the character
 [[:alnum:]_]+ Token(T_TOKEN,yytext);
-;?\n Token(T_EOL,yytext);
+;?\n? Token(T_EOL,yytext);
 
 . ;
 
